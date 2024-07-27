@@ -5,31 +5,14 @@
   collections:
     - awx.awx
 
-  tasks:
+  pre_tasks:
     - name: Include vars
       ansible.builtin.include_vars:
         dir: group_vars
 
-    - name: Build organization
-      ansible.builtin.import_role:
-        name: organization
-
-    - name: Build credentials
-      ansible.builtin.import_role:
-        name: credential
-    
-    - name: Build projects
-      ansible.builtin.import_role:
-        name: project
-    
-    - name: Build inventories
-      ansible.builtin.import_role:
-        name: inventory
-    
-    # - name: Build execution environment
-    #   ansible.builtin.import_role:
-    #     name: exec-env
-
-    - name: Build templates
-      ansible.builtin.import_role:
-        name: template
+  roles:
+    - role: organization
+    - role: credential
+    - role: project
+    - role: inventory
+    - role: template
