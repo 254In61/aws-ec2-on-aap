@@ -30,10 +30,6 @@
     #   ansible.builtin.import_role:
     #     name: exec-env
 
-    - name: Build job-templates
+    - name: Build templates
       ansible.builtin.import_role:
-        name: job-template
-
-    - name: Import workflow role
-      ansible.builtin.import_role:
-        name: workflow
+        name: template
