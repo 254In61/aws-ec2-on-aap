@@ -2,7 +2,7 @@
 # Unittesting pre-change-checks role
 - name: Execute changes 
   gather_facts: true
-  hosts: all
+  hosts: aws_ec2 # Group name created automatically when aws ec2 hosts are being imported
   become: true
 
   tasks:

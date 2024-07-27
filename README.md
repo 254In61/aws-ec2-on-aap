@@ -3,6 +3,7 @@ Managing AWS EC2 instances on Ansible Automation Platform through Dynamic Invent
 
 # Build AWS Infra
 - Built under the directory aws-infra/
+- AWS resources built using terraform.
 - Follow the README.md
 
 # Build Ansible Automation Platform Resouces
