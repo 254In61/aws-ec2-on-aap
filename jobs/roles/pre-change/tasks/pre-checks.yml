@@ -1,0 +1,51 @@
+---
+# Running some checks at this point to confirm devices are ready for upgrades.
+
+- name: Check Git version
+  ansible.builtin.command: git --version
+  register: initial_git_version
+
+- name: Print Git version
+  ansible.builtin.debug:
+    msg: "Initial Git version: {{ initial_git_version.stdout }}"
+
+- name: Check Python3 version
+  ansible.builtin.command: python3 --version
+  register: initial_python3_version
+
+- name: Print Python3 version
+  ansible.builtin.debug:
+    msg: "Initial Python3 version: {{ initial_python3_version.stdout }}"
+
+- name: Check Ansible version
+  ansible.builtin.command: ansible --version
+  register: initial_ansible_version
+
+- name: Print Ansible version
+  ansible.builtin.debug:
+    msg: "Initial Ansible version: {{ initial_ansible_version.stdout_lines[0] }}"
+
+
+- name: Some pre-checks to decide devices are ready.
+  ansible.builtin.shell: systemctl status NetworkManager
+  register: pre_checks
+
+- ansible.builtin.assert:
+    that: "'Active: active (running)' in pre_checks['stdout']"
+    fail_msg: "FAIL! - Service not up"
+    success_msg: "PASS! - Service confirmed up"
+
+# - debug:
+#     var: pre_checks
+
+# set_stat enables inheritance down the path of the workflow
+
+- name: Setting stats for the post-change-checks stage consumption
+  ansible.builtin.set_stats:
+    data:
+      pre_change_git_version: "{{ initial_git_version.stdout }}"
+      pre_change_python3_version: "{{ initial_python3_version.stdout_lines[0] }}"
+      pre_change_ansible_version: "{{ initial_ansible_version.stdout_lines[0] }}"
+    per_host: yes
+
+

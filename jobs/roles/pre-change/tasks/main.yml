@@ -1,0 +1,9 @@
+---
+# Main file
+# - import_tasks: init-notify.yml
+
+- import_tasks: pre-checks.yml
+
+#- import_tasks: notify.yml
+
+

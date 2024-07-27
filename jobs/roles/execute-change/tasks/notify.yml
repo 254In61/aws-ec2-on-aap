@@ -1,0 +1,15 @@
+---
+# Notify 
+- name: Obtain exact timestamp
+  shell: "date"
+  register: timestamp
+
+- set_fact:
+    email_body: "SUCCESS! execute-change tasks have been completed at {{ timestamp['stdout_lines'][0] }}. Next step is post-change-checks"
+  #when: *** A certain measure of success ***
+
+# - set_fact:
+#     email_body: "FAIL! Pre-check tasks failed to complete at {{ timestamp['stdout_lines'][0] }}. Check the logs for more troubleshooting"
+#   #when: *** A certain measure of success ***
+
+- import_tasks: ../../../modules/send-email-notification.yml

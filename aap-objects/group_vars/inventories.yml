@@ -1,0 +1,4 @@
+---
+# AWS EC2
+aws_ec2_inventory_name: aws-ec2-inventory
+aws_ec2_inventory_source: aws-ec2-inventory-source

@@ -1,0 +1,25 @@
+---
+# Unittesting pre-change-checks role
+- name: Execute changes 
+  gather_facts: true
+  hosts: all
+  become: true
+
+  tasks:
+    - name: include vars
+      include_vars:
+        dir: group_vars
+
+    - name: Execute changes
+      ansible.builtin.import_role:
+        name: execute-change
+
+  post_tasks:
+    - name: Debug the outcome
+      ansible.builtin.debug:
+        msg:
+          - "{{ inventory_hostname }} managed successfully "
+
+    
+    
+    

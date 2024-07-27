@@ -1,0 +1,4 @@
+---
+# Main
+- name: Build aws project
+  ansible.builtin.import_tasks: aws.yml

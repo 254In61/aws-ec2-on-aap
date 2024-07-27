@@ -1,0 +1,37 @@
+---
+# All variable
+# To be picked by Survey?
+# Global variables
+change_number: C2222
+start_date: 02-08-2023
+start_time: 11:05
+stop_date: 02-08-2023
+stop_time: 12:05
+
+# ==Email Notifications
+# Global variables
+mail_server_username: ....
+
+# manage account >> security >> app password
+# Normal username/password will not work if testing with gmal. 
+# You need app authention for gmail.
+# https://www.zdnet.com/article/what-is-a-gmail-app-password-and-how-do-you-create-one/
+mail_server_password: "{{ lookup('env','GMAIL_APP_PASS') }}"
+mail_server_host: smtp.gmail.com
+mail_server_port: 587
+
+sender_email_address: ....
+email_recipient_1: ....
+email_recipient_2: ....
+
+# == Workflow
+workflow_name: f5-upgrade-workflow
+
+# == Data Files
+data_storage_dir: /home/${USER}/data_files
+
+# Variable that cut across all
+container_name_prefix: test_container
+container_image: python:3.9-slim
+number_of_containers: 3
+

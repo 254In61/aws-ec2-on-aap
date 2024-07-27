@@ -1,0 +1,15 @@
+---
+# Initial notification
+
+- name: Obtain exact timestamp
+  shell: "date"
+  register: timestamp
+
+- debug:
+    var: timestamp["stdout_lines"][0]
+
+- set_fact:
+    email_body: "Preliminary work completed at {{ timestamp['stdout_lines'][0] }}. Next step is pre-change-checks"
+  #when: *** A certain measure of success ***
+
+- import_tasks: modules/send-email-notification.yml

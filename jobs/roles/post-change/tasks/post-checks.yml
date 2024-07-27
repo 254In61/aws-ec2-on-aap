@@ -1,0 +1,35 @@
+---
+# Post change checks
+
+- name: Check Git version
+  ansible.builtin.command: git --version
+  register: current_git_version
+
+- name: Print Git version
+  ansible.builtin.debug:
+    msg: 
+      #- "Initial Git version: {{ pre_change_git_version }}" 
+      # To be inherited from 1st job template
+      # I had failures in my lab..To be back to it when if I would really need to work on it!
+      - "Current Git version: {{ current_git_version.stdout }}"
+
+- name: Check Python3 version
+  ansible.builtin.command: python3 --version
+  register: current_python3_version
+
+- name: Print Python3 version
+  ansible.builtin.debug:
+    msg: 
+      #- "Initial Python3 version: {{ pre_change_python3_version }}" 
+      # To be inherited from 1st job template
+      - "current Python3 version: {{ current_python3_version.stdout }}"
+
+- name: Check Ansible version
+  ansible.builtin.command: ansible --version
+  register: current_ansible_version
+
+- name: Print Ansible version
+  ansible.builtin.debug:
+    msg:
+      #- "Initial Ansible version: {{ pre_change_ansible_version }}" # To be inherited from 1st job template
+      - "current Ansible version: {{ current_ansible_version.stdout_lines[0] }}"

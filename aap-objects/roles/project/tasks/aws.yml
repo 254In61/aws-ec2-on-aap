@@ -1,0 +1,16 @@
+---
+# Build the aws project
+
+- name: "Create {{ aws_aap_project_name }} project"
+  ansible.controller.project:
+    name: "{{ aws_aap_project_name }}"
+    description: "{{ project_git_url }}"
+    organization: "{{ organization_name }}"
+    scm_type: "git"
+    scm_url: "{{ project_git_url }}"
+    scm_branch: "{{ project_git_branch }}"
+    scm_credential: "{{ vcs_aap_credential_name }}"
+    scm_update_on_launch: true     # Perform an update to the local repository before launching a job with this project.
+    scm_update_cache_timeout: 60
+    state: present
+    #controller_config_file: "~/tower_cli.cfg"

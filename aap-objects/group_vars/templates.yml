@@ -1,0 +1,9 @@
+---
+# job templates
+aws_env_phase_1: aws-infra-pre-change-checks
+aws_env_phase_2: aws-infra-execute-change
+aws_env_phase_3: aws-infra-post-change-checks
+
+# Workflow templates
+aws_infra_workflow_name: aws-ec2-patching
+aws_infra_change_approval_node_name: aws-ec2-change-approval

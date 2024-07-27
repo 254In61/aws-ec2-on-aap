@@ -1,0 +1,7 @@
+---
+# Main 
+- name: Build aws-ec2 inventory
+  ansible.builtin.import_tasks: aws-ec2.yml
+
+
+

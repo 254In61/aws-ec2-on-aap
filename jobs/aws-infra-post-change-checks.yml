@@ -1,0 +1,15 @@
+---
+# Unittesting pre-change-checks role
+- name: Post-change-checks unit tests
+  gather_facts: true
+  hosts: all
+
+  tasks:
+    - name: include vars
+      include_vars:
+        dir: group_vars
+    
+    - import_role:
+        name: post-change
+
+        

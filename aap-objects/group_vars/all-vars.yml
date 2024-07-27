@@ -1,0 +1,10 @@
+---
+# Organization object name
+organization_name: panther
+
+project_git_url: https://github.com/254In61/aws-ec2-on-aap  # To be changed to Azure
+project_git_branch: develop
+
+# aap_exec_env_name: aap-exec-env ## Faced issues of AAP not handing over credentials and hosts to the AEE.
+aap_exec_env_name: default-exec-env ## Renamed it from the loooong "Default execution environment"
+aap_exec_env_image: "docker.io/254in61/aap-exec-env:latest"

@@ -1,0 +1,4 @@
+---
+# Main 
+- name: Build aws infra job Templates
+  ansible.builtin.import_tasks: aws.yml
