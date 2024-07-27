@@ -9,9 +9,10 @@ Managing AWS EC2 instances on Ansible Automation Platform through Dynamic Invent
 - Built under the directory aap-objects/
 - Follow the README.md
 
-# Run jobs
-- Templates will be built in the Ansible playbook
-- Check jobs/README.md
+# Run playbooks
+- Templates will be built in the Ansible Automation Platform
+- Run them from there.
+- There's a workflow built too which stitches the job templates
 
 How to use
 ==========

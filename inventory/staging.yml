@@ -1,0 +1,19 @@
+---
+# Inventory file
+
+linux:
+  hosts:
+    tough-guy:
+      ansible_host: 192.168.1.99
+    the-eagle:
+      ansible_host: 192.168.1.100
+
+ubuntu:
+  hosts:
+    the-eagle:
+      ansible_host: 192.168.1.100
+
+redhat:
+  hosts:
+    tough-guy:
+      ansible_host: 192.168.1.99
